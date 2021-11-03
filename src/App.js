@@ -90,13 +90,15 @@ function App() {
 
       // Add point on click
       map.current.on('click', (e) => {
+        
+        // TODO Add function to remove points
+        // use map.current.project() to get the pixel coordinates 
+
         if (is_drawing || coordinates.length === 0) {
           e.preventDefault();
           coordinates.push([e.lngLat["lng"], e.lngLat["lat"]]);
           data['coordinates'] = coordinates;
           map.current.getSource('route').setData(data);
-          console.log(map.current.project([e.lngLat["lng"], e.lngLat["lat"]]))
-          console.log(data)
 
           // Update distance and price
           if (coordinates.length > 1){
